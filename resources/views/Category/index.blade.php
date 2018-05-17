@@ -15,10 +15,10 @@
                         }
                         @endphp
                         <li role="tab1" class="@if($tab==1){{"active"}}@endif">
-                            <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">查看品牌分类</a>
+                            <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">查看文章分类</a>
                         </li>
                         <li role="tab2" style="width:160px" class="@if($tab==2){{"active"}}@endif">
-                            <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">添加品牌分类</a>
+                            <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">添加文章分类</a>
                         </li>
                     </ul>
                 </div>
@@ -36,7 +36,7 @@
                                 <tr>
                                     <td>{{$category->name}}</td>
                                     <td>
-                                        <a href="{{url("deleteBrand/$category->id")}}">
+                                        <a href="{{url("deleteCategory/$category->id")}}">
                                             <input type="button" class="btn btn-xs btn-danger" value="删除">
                                         </a>
                                     </td>
@@ -60,7 +60,7 @@
                                 <div class="section">
                                     <div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i>请填写信息</div>
                                     <div class="section-body __indent">
-                                        <form class="form form-horizontal" method="post" action="{{route('brand')}}" enctype="multipart/form-data">
+                                        <form class="form form-horizontal" method="post" action="{{route('category')}}" enctype="multipart/form-data">
                                             <div class="section">
                                                 <div class="section-body">
                                                     {{csrf_field()}}

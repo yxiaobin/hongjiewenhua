@@ -50,9 +50,9 @@
                     </a>
                     <div class="dropdown-menu">
                         <ul>
-                            <li><a href="#">文章分类</a></li>
+                            <li><a href="{{route('category')}}">文章分类</a></li>
                             <li><a href="{{route('brand')}}">品牌分类</a></li>
-                            <li><a href="#">文章管理</a></li>
+                            <li><a href="{{route('artical')}}">文章管理</a></li>
                             <li><a href="#">页面管理</a></li>
                         </ul>
                     </div>
