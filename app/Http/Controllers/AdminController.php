@@ -83,4 +83,11 @@ class AdminController extends Controller
         $id ->delete();
         return redirect()->back();
     }
+    public function getImage($path,$name){
+        return response()->download(storage_path('app/').$path."/".$name);
+    }
+    public  function  LogoutIndex(){
+        session(['name'=>'','rank'=>'', 'id'=>'']);
+        return redirect('login');
+    }
 }

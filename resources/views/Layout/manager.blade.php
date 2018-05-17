@@ -53,12 +53,12 @@
                             <li><a href="{{route('category')}}">文章分类</a></li>
                             <li><a href="{{route('brand')}}">品牌分类</a></li>
                             <li><a href="{{route('artical')}}">文章管理</a></li>
-                            <li><a href="#">页面管理</a></li>
+                            <li><a href="{{route('page')}}">页面管理</a></li>
                         </ul>
                     </div>
                 </li>
                 <li class="dropdown">
-                    <a href="#}">
+                    <a href="{{route('ppt')}}">
                         <div class="icon">
                             <i class="fa fa-group" aria-hidden="true"></i>
                         </div>
@@ -66,36 +66,60 @@
                     </a>
                 </li>
                 <li class="dropdown">
-                    <a href="#}">
+                    <a href="#">
                         <div class="icon">
                             <i class="fa fa-group" aria-hidden="true"></i>
                         </div>
                         <div class="title">我要加盟</div>
                     </a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="{{url("form/1/0")}}">未读消息</a></li>
+                            <li><a href="{{url("form/1/1")}}">已读消息</a></li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="dropdown">
-                    <a href="#}">
+                    <a href="#">
                         <div class="icon">
                             <i class="fa fa-group" aria-hidden="true"></i>
                         </div>
                         <div class="title">我要维修</div>
                     </a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="{{url("form/2/0")}}">未读消息</a></li>
+                            <li><a href="{{url("form/2/1")}}">已读消息</a></li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="dropdown">
-                    <a href="#}">
+                    <a href="#">
                         <div class="icon">
                             <i class="fa fa-group" aria-hidden="true"></i>
                         </div>
                         <div class="title">我要设计</div>
                     </a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="{{url("form/3/0")}}">未读消息</a></li>
+                            <li><a href="{{url("form/3/1")}}">已读消息</a></li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="dropdown">
-                    <a href="#}">
+                    <a href="#">
                         <div class="icon">
                             <i class="fa fa-group" aria-hidden="true"></i>
                         </div>
                         <div class="title">我要投诉</div>
                     </a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="{{url("form/4/0")}}">未读消息</a></li>
+                            <li><a href="{{url("form/4/1")}}">已读消息</a></li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -157,7 +181,7 @@
                                 </div>
                                 <ul class="action">
                                     <li>
-                                        <a href="">
+                                        <a href="{{route('logout')}}">
                                             退出
                                         </a>
                                     </li>
