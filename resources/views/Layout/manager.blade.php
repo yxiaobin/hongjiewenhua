@@ -58,6 +58,29 @@
                     </div>
                 </li>
                 <li class="dropdown">
+                    <a href="{{route('member')}}">
+                        <div class="icon">
+                            <i class="fa fa-group" aria-hidden="true"></i>
+                        </div>
+                        <div class="title">人员管理</div>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#">
+                        <div class="icon">
+                            <i class="fa fa-group" aria-hidden="true"></i>
+                        </div>
+                        <div class="title">网站管理</div>
+                    </a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="{{route('menue')}}">菜单栏管理</a></li>
+                            <li><a href="#">拓展栏管理</a></li>
+
+                        </ul>
+                    </div>
+                </li>
+                <li class="dropdown">
                     <a href="{{route('ppt')}}">
                         <div class="icon">
                             <i class="fa fa-group" aria-hidden="true"></i>
@@ -172,7 +195,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown profile">
                             <a href="/html/pages/profile.html" class="dropdown-toggle"  data-toggle="dropdown">
-                                <img class="profile-img" src="">
+                               <p>设置</p>
                                 <div class="title">Profile</div>
                             </a>
                             <div class="dropdown-menu">
@@ -180,6 +203,11 @@
                                     <h4 class="username">管理员您好</h4>
                                 </div>
                                 <ul class="action">
+                                    <li>
+                                        <a href="{{route('info')}}">
+                                            信息修改
+                                        </a>
+                                    </li>
                                     <li>
                                         <a href="{{route('logout')}}">
                                             退出

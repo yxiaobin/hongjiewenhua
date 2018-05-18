@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    // 后台管理页面
+    public function  AdminIndex(){
+        return view("Manager.index");
+    }
     //Login 页面
     public function  LoginIndex(){
         return view('Login.login');
@@ -32,7 +36,7 @@ class AdminController extends Controller
             if($password == $member->password){
                 //登记session
                 session(['id'=>$member->id]);
-                return view("Manager.index");
+                return redirect('adminindex');
             }else{
                 //密码错误
                 echo "<script>alert('密码错误！')</script>";
@@ -90,4 +94,22 @@ class AdminController extends Controller
         session(['name'=>'','rank'=>'', 'id'=>'']);
         return redirect('login');
     }
+    public function  InfoIndex(){
+        return view('Info.index');
+    }
+    public  function  InfoStore(Request $request){
+      $this->validate($request,[
+         'password'=>'sometimes|confirmed'
+      ]);
+      $member = Member::find(session('id'));
+      if($request->input('usr_name')!=null){
+          $member->usr_name = $request->input('usr_name');
+      }
+        if($request->input('password')!=null){
+            $member->password = $request->input('password');
+        }
+        $member->save();
+        return redirect('adminindex');
+    }
+
 }
