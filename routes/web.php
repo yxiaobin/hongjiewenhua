@@ -22,3 +22,27 @@ Route::post('/login',['as'=>"login",'uses'=>"AdminController@Login"]);
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('index',function (){
+    return view('Home.index');
+});
+Route::get('/jiameng',function (){
+    return view('Home.jiameng');
+});
+Route::get('articleList',function (){
+    return view('Home.articleList');
+});
+Route::get('weixiu',function (){
+    return view('Home.weixiu');
+});
+Route::get('sheji',function (){
+    return view('Home.sheji');
+});
+Route::get('tousu',function (){
+    return view('Home.tousu');
+});
+Route::get('article',function (){
+    return view('Home.article');
+});
+Route::get('page',function (){
+    return view('Home.page');
+});
