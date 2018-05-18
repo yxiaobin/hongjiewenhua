@@ -13,52 +13,16 @@
     <script type="text/javascript" src="{{asset('js/zepto.min.js')}}"></script>
     <script type="text/javascript">
         function FeedBack() {
-            var OrgCode = $('#txtOrgCode').val();
-            var Remark = $('#txtRemark').val();
-            var Address = $('#txtAddress').val();
-            var Linkman = $('#txtLinkman').val();
-            var Mobile = $('#txtMobile').val();
-            var Property = $('#ckbProperty')[0].checked ? "1" : "0";
-            if (OrgCode == "") {
-                alert('请选择接收品牌');
-                return false;
+            var inp = $('form').find('input');
+            console.log(inp);
+            for(var i=1;i<inp.length;i++){
+                if(inp[i].val()==""){
+                    var msg = $(inp[i]).prev().val();
+                    alert(msg+"不能为空！");
+                    return false;
+                }
             }
-            if (Address == "") {
-                alert('请填写地址');
-                return false;
-            }
-            if (Linkman == "") {
-                alert('请填写联系人');
-                return false;
-            }
-            if (Mobile == "") {
-                alert('请填写联系电话');
-                return false;
-            }
-        //     $.ajax({
-        //         type: "Post",
-        //         async: false,
-        //         url: "ServiceLeague.aspx/SaveData",
-        //         contentType: "application/json; charset=utf-8",
-        //         data: '{"OrgCode":"' + OrgCode + '","Address":"' + Address + '","Linkman":"' + Linkman + '","Mobile":"' + Mobile + '","Property":"' + Property + '","Remark":"' + Remark + '"}',
-        //         dataType: "json",
-        //         success: function (data) {
-        //             if (data.d == "ok") {
-        //                 history.back();
-        //                 //window.location.href = 'Index.aspx';
-        //                 return false;
-        //             }
-        //             else
-        //                 alert(data.d);
-        //
-        //         },
-        //         error: function (XmlHttpRequest, textStatus, errorThrown) {
-        //             alert("获取数据出错,请重试.");
-        //             return false;
-        //         }
-        //     });
-        //     return false;
-        // }
+        }
     </script>
 </head>
 <body>

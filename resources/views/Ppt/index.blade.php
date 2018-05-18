@@ -15,10 +15,10 @@
                         }
                         @endphp
                         <li role="tab1" class="@if($tab==1){{"active"}}@endif">
-                            <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">查看品牌分类</a>
+                            <a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">查看幻灯片</a>
                         </li>
                         <li role="tab2" style="width:160px" class="@if($tab==2){{"active"}}@endif">
-                            <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">添加品牌分类</a>
+                            <a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">添加幻灯片</a>
                         </li>
                     </ul>
                 </div>
@@ -27,18 +27,48 @@
                         <table class="datatable table" cellspacing="0" width="100%">
                             <thead>
                             <tr>
-                                <th>名称</th>
+                                <th>预览</th>
+                                <th>排序</th>
+                                <th>链接</th>
+                                <th>状态</th>
                                 <th>操作</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($categorys as $category)
+                            @foreach($ppts as $ppt)
                                 <tr>
-                                    <td>{{$category->name}}</td>
+                                    <td><img src="{{url('getImage')}}/{{$ppt->image}}" alt="" width="100" height="50"></td>
+                                    <td>{{$ppt->num}}</td>
                                     <td>
-                                        <a href="{{url("deleteBrand/$category->id")}}">
-                                            <input type="button" class="btn btn-xs btn-danger" value="删除">
+                                        @if($ppt->href==null)无
+                                        @else{{$ppt->href}}
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($ppt->show==1)已推荐
+                                        @else未推荐
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="{{url("reeditppt/$ppt->id")}}">
+                                            <input type="button" class="btn btn-xs btn-info" value="修改">
                                         </a>
+                                        <a href="{{url("pptshow/$ppt->id")}}">
+                                            <input type="button" class = "btn btn-xs @if($ppt->show==1)btn-default
+@else
+                                                    btn-success
+@endif" value="@if($ppt->show==1)取消推荐@else设为推荐@endif">
+                                        </a>
+                                        @if($ppt->num>1)
+                                        <a href="{{url("pptup/$ppt->id")}}">
+                                            <input type="button" class="btn btn-xs btn-info" value="上移">
+                                        </a>
+                                        @endif
+                                        @if($ppt->num <count($ppts))
+                                        <a href="{{url("pptdown/$ppt->id")}}">
+                                            <input type="button" class="btn btn-xs btn-warning" value="下移">
+                                        </a>
+                                            @endif
                                     </td>
                                 </tr>
                             @endforeach
@@ -60,40 +90,23 @@
                                 <div class="section">
                                     <div class="section-title"><i class="icon fa fa-user" aria-hidden="true"></i>请填写信息</div>
                                     <div class="section-body __indent">
-                                        <form class="form form-horizontal" method="post" action="{{route('brand')}}" enctype="multipart/form-data">
+                                        <form class="form form-horizontal" method="post" action="{{route('addppt')}}" enctype="multipart/form-data">
+                                            {{csrf_field()}}
                                             <div class="section">
+                                                <div class="section-title"></div>
                                                 <div class="section-body">
-                                                    {{csrf_field()}}
-                                                    {{--<div class="form-group">--}}
-                                                    {{--<label class="col-md-3 control-label">选择图片<span class="size">(1920x640)</label>--}}
-                                                    {{--<div class="col-md-9">--}}
-                                                    {{--<input type="file" name="img" accept="image/gif,image/jpeg,image/png,image/webp" class="form-control" placeholder="简体">--}}
-                                                    {{--</div>--}}
-                                                    {{--</div>--}}
                                                     <div class="form-group">
-                                                        <label class="col-md-3 control-label">名称</label>
+                                                        <label class="col-md-3 control-label">选择图片<span class="size">(1920x640)</label>
                                                         <div class="col-md-9">
-                                                            <input type="text" class="form-control" placeholder="名称" name="name">
-                                                        </div>
-                                                    </div>
-                                                    <!--<div class="form-group">
-                                                        <label class="col-md-3 control-label">描述</label>
-                                                        <div class="col-md-9">
-                                                            <input type="text" class="form-control" placeholder="描述" name="description">
+                                                            <input type="file" name="image" accept="image/gif,image/jpeg,image/png,image/webp" class="form-control" placeholder="简体">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-md-3 control-label">链接地址</label>
                                                         <div class="col-md-9">
-                                                            <input type="text" class="form-control" placeholder="链接地址" name="url">
+                                                            <input type="text" class="form-control" placeholder="链接地址" name="href">
                                                         </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-3 control-label">链接名称</label>
-                                                        <div class="col-md-9">
-                                                            <input type="text" class="form-control" placeholder="链接名称" name="url_title">
-                                                        </div>
-                                                    </div>-->
                                                     <div class="form-footer">
                                                         <div class="form-group">
                                                             <div class="col-md-9 col-md-offset-3">

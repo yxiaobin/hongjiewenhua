@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
+use App\Category;
 use App\Member;
+use DeepCopy\f001\B;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -39,9 +41,53 @@ class AdminController extends Controller
             }
         }
     }
+    //品牌管理页面
     public  function  BrandIndex(){
         $tab=1;
         $categorys =Brand::orderby('id','desc')->get();
         return view('Brand.index',compact('tab','categorys'));
+    }
+    public  function  BrandStore(Request $request){
+        $this->validate($request,[
+            'name'=>'required|unique:brand,name'
+        ]);
+        $kind  = new Brand();
+        $kind->name = $request->input('name');
+        $kind->save();
+        $tab=1;
+        $categorys =Brand::orderby('id','desc')->get();
+        return view('Brand.index',compact('tab','categorys'));
+    }
+    public  function  BrandDelete(Brand $id){
+        $id ->delete();
+        return redirect()->back();
+    }
+    //文章分类管理页面
+    public  function  CategoryIndex(){
+        $tab=1;
+        $categorys =Category::orderby('id','desc')->get();
+        return view('Category.index',compact('tab','categorys'));
+    }
+    public  function  CategoryStore(Request $request){
+        $this->validate($request,[
+            'name'=>'required|unique:brand,name'
+        ]);
+        $kind  = new Category();
+        $kind->name = $request->input('name');
+        $kind->save();
+        $tab=1;
+        $categorys =Category::orderby('id','desc')->get();
+        return view('Category.index',compact('tab','categorys'));
+    }
+    public  function  CategoryDelete(Category $id){
+        $id ->delete();
+        return redirect()->back();
+    }
+    public function getImage($path,$name){
+        return response()->download(storage_path('app/').$path."/".$name);
+    }
+    public  function  LogoutIndex(){
+        session(['name'=>'','rank'=>'', 'id'=>'']);
+        return redirect('login');
     }
 }
