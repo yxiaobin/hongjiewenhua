@@ -21,10 +21,11 @@
                                 <td>{{$help->title}}</td>
                                 <td>
                                     @if($help->abstract ==null)
-                                    {{str_limit( strip_tags($help->content), 100, '...')}}</td>
+                                    {{str_limit( strip_tags($help->content), 100, '...')}}
                                     @else
                                         {!! $help->abstract !!}
                                     @endif
+                                </td>
                                 <td>
                                     <img src="{{url('getImage')}}/{{$help->image}}" alt="" width="100" height="50"></td>
                                 </td>

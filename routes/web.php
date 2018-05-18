@@ -12,6 +12,8 @@
 */
 //管理员权限
 Route::middleware(['web','AdminCheckLog'])->group(function (){
+    //主页
+    Route::get('/adminindex',['as'=>"adminindex",'uses'=>"AdminController@AdminIndex"]);
     //品牌分类管理
     Route::get('/brand',['as'=>"brand",'uses'=>"AdminController@BrandIndex"]);
     Route::post('/brand',['as'=>"brand",'uses'=>"AdminController@BrandStore"]);
@@ -44,7 +46,22 @@ Route::middleware(['web','AdminCheckLog'])->group(function (){
     Route::get('/pptdown/{id}',['as'=>"pptshow",'uses'=>"PptController@PptDown"]);
     Route::get('/reeditppt/{id}',['as'=>"reeditppt",'uses'=>"PptController@PptReeditIndex"]);
     Route::post('/reeditppt/{id}',['as'=>"reeditppt",'uses'=>"PptController@PptReeditStore"]);
-
+    //管理员信息修该
+    Route::get('/info/',['as'=>"info",'uses'=>"AdminController@InfoIndex"]);
+    Route::post('/info/',['as'=>"info",'uses'=>"AdminController@InfoStore"]);
+    Route::get('/member/',['as'=>"member",'uses'=>"MemberController@MemberIndex"]);
+    Route::post('/member/',['as'=>"member",'uses'=>"MemberController@MemberStore"]);
+    Route::get('/deletemember/{id}',['as'=>"deletemember",'uses'=>"MemberController@MemberDelete"]);
+    //菜单栏管理
+    Route::get('/menue/',['as'=>"menue",'uses'=>"MenueController@MenueIndex"]);
+    Route::get('/menueedit/',['as'=>"menueedit",'uses'=>"MenueController@MenueEdit"]);
+    Route::post('/menueedit/',['as'=>"menueedit",'uses'=>"MenueController@MenueStore"]);
+    Route::get('/menuereedit/{id}',['as'=>"menuereedit",'uses'=>"MenueController@MenueReedit"]);
+    Route::post('/menuereedit/{id}',['as'=>"menuereedit",'uses'=>"MenueController@MenueRestore"]);
+    Route::get('/menuedelete/{id}',['as'=>"menuedelete",'uses'=>"MenueController@MenueDelete"]);
+    Route::get('/menueshow/{id}',['as'=>"menueshow",'uses'=>"MenueController@MenueShow"]);
+    Route::get('/menueup/{id}',['as'=>"menueupshow",'uses'=>"MenueController@MenueUp"]);
+    Route::get('/menuedown/{id}',['as'=>"menuedownshow",'uses'=>"MenueController@MenueDown"]);
 
 });
 //登录
