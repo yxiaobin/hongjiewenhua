@@ -49,9 +49,7 @@ class ArticalController extends Controller
         if($request->input('title')!=null){
             $id->title = $request->input('title');
         }
-        if($request->input('href')!=null){
             $id->href = $request->input('href');
-        }
         if($request->input('category')!=null){
             $id->category_id = $request->input('category');
         }

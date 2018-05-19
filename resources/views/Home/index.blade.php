@@ -27,14 +27,11 @@
         <div class="bd">
             <div class="tempWrap"><ul>
 
-                    <li><a href="http://jsjwx.hezongarttou.com/micromart">
-                            <img src="./wallet.aspx_files/d3058772-8094-4c63-b177-fd18bfe678ca.jpg"></a></li>
-                    <li><a href="http://hzwx.hezongarttou.com/micromart">
-                            <img src="./wallet.aspx_files/ae724ca6-499f-4885-894e-feaf005de916.jpg"></a></li>
-                    <li><a href="http://jsjwx.hezongarttou.com/micromart">
-                            <img src="./wallet.aspx_files/d3058772-8094-4c63-b177-fd18bfe678ca.jpg"></a></li>
-                    <li><a href="http://hzwx.hezongarttou.com/micromart">
-                            <img src="./wallet.aspx_files/ae724ca6-499f-4885-894e-feaf005de916.jpg"></a></li>
+                    @foreach($ppts as $ppt)
+                    <li><a href="{{$ppt->href}}">
+                            <img src="{{url("getImage/$ppt->image")}}">
+                        </a></li>
+                     @endforeach
                 </ul></div>
         </div>
     </div>
@@ -43,67 +40,34 @@
         <h3>
             红杰服务</h3>
         <ul>
-            <li style="height: 171px;"><a href="{{url('jiameng')}}">
-                    <img src="{{asset('img/jiameng.png')}}" alt="icon">
+            @foreach($menues as $menue )
+            <li style="height: 171px;">
+                @if($menue->name !='自定义')
+                <a href="{{url("/$menue->name")}}">
+                    @else
+                        <a href="{{$menue->href}}">
+                        @endif
+                    <img src="{{url("getImage/$menue->image")}}" alt="icon">
                     <p>
-                        我要加盟</p></a>
+                        @if($menue->name !='自定义')
+                        {{$menue->name}}
+                            @endif
+                    </p></a>
             </li>
-
-            <li style="height: 171px;"><a href="{{url('articleList')}}">
-                    <img src="{{'img/jiabin.png'}}" alt="icon">
-                    <p>
-                        我要嘉宾</p></a>
-            </li>
-
-            <li style="height: 171px;"><a href="{{url('articleList')}}">
-                    <img src="{{asset('img/paidui.png')}}" alt="icon">
-                    <p>
-                        我要派对</p></a>
-            </li>
-
-            <li style="height: 171px;"><a href="{{url('weixiu')}}">
-                    <img src="{{asset('img/weixiu.png')}}" alt="icon">
-                    <p>
-                        我要维修</p></a>
-            </li>
-
-            <li style="height: 171px;"><a href="{{url('sheji')}}">
-                    <img src="{{asset('img/sheji.png')}}"" alt="icon">
-                    <p>
-                        我要设计</p></a>
-            </li>
-
-            <li style="height: 171px;"><a href="{{url('tousu')}}">
-                    <img src="{{asset('img/tousu.png')}}" alt="icon">
-                    <p>
-                        我要投诉</p></a>
-            </li>
-
-            <li style="height: 171px;"><a href="{{url('articleList')}}">
-                    <img src="{{url('')}}" alt="icon">
-                    <p>
-                        我要培训</p></a>
-            </li>
-
-            <li style="height: 171px;"><a href="{{url('page')}}">
-                    <img src="{{url('')}}" alt="icon">
-                    <p>
-                        联系我们</p></a>
-            </li>
-
-
+                @endforeach
         </ul>
     </div>
     <div class="wallet_menu">
         <h3>
             第三方服务</h3>
         <ul>
-
-            <li style="height: 171px;"><a href="http://www.kuaidi100.com/">
-                    <img src="./wallet.aspx_files/024a854c-6e36-4d9b-a4d7-61dd961bfabe.png" alt="icon">
+                @foreach($others as $other)
+            <li style="height: 171px;"><a href="{{$other->href}}">
+                    <img src="{{url("getImage/$other->image")}}" alt="icon">
                     <p>
-                        物流查询</p></a>
+                        {{$other->name}}</p></a>
             </li>
+                    @endforeach
 
 
         </ul>

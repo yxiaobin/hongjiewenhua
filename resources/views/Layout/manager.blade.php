@@ -75,7 +75,7 @@
                     <div class="dropdown-menu">
                         <ul>
                             <li><a href="{{route('menue')}}">菜单栏管理</a></li>
-                            <li><a href="#">拓展栏管理</a></li>
+                            <li><a href="{{route('other')}}">拓展栏管理</a></li>
 
                         </ul>
                     </div>

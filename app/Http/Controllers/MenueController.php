@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Menue;
+use App\News;
+use App\Page;
 use Illuminate\Http\Request;
 
 class MenueController extends Controller
@@ -42,7 +45,7 @@ class MenueController extends Controller
         if ($request->file('image')!=null){
             $id->image = $request->file('image')->store('images');
         }
-        $id->href = $request->file('href');
+        $id->href = $request->input('href');
         if ($request->input('category')!=-1){
             $str = explode('/',$request->input('category'));
             $str1=$str[0];
@@ -78,5 +81,27 @@ class MenueController extends Controller
         $id->num +=1;
         $id->save();
         return back();
+    }
+    public  function  MenueUrl($url){
+        $menue = Menue::where('name','=',$url)->get()[0];
+        if($url=='全部文章'){
+            $news = News::orderby('id','desc')->get();
+            return view('Home.articleList',compact('news'));
+        }else if($url=='自定义'){
+
+        }else if($menue->category==1){
+            $id = Category::where('name','=',$url)->get()[0];
+            $news = News::where('category_id','=',$id->id)->orderby('id','desc')->get();
+            return view('Home.articleList',compact('news'));
+        }else if($menue->category==2){
+            $id = $url;
+             return view('Home.form',compact('id'));
+        }else if($menue->category==3){
+            $new =Page::where('title','=',$url)->orderby('id','desc')->get();
+            if(count($new)>0){
+                $new = $new->first();
+            }
+            return view('Home.page',compact('new'));
+        }
     }
 }

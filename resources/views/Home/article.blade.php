@@ -21,13 +21,16 @@
     <a class="more" href="{{asset('/index')}}"><i class="fa fa-home fa-lg"></i></a>
 </div>
 <article class="col-md-8 col-md-offset-2 view clearfix" style="margin-top: 20px;">
-    <h1 class="view-title">laravel上传的图片无法打开，报错Unable to guess the mime type as no guessers are available</h1>
+    <h1 class="view-title">{{$new->title}}</h1>
+    @php
+    $kind = App\Category::where('id','=',$new->category_id)->get()[0];
+    @endphp
     <div class="view-meta">
-        <span>分类: <a href="{{url('')}}" rel="category">PHP</a></span>
-        <span>时间: 2018-05-16 23:57</span>
+        <span>分类: <a href="{{url("/$kind->name")}}" rel="category">{{$kind->name}}</a></span>
+        <span>时间: {{date('Y-m-d H:m:s',$new->time)}}</span>
     </div>
     <div class="view-content">
-        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        {!! $new->content !!}
     </div>
 </article>
 </div>

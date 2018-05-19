@@ -62,6 +62,16 @@ Route::middleware(['web','AdminCheckLog'])->group(function (){
     Route::get('/menueshow/{id}',['as'=>"menueshow",'uses'=>"MenueController@MenueShow"]);
     Route::get('/menueup/{id}',['as'=>"menueupshow",'uses'=>"MenueController@MenueUp"]);
     Route::get('/menuedown/{id}',['as'=>"menuedownshow",'uses'=>"MenueController@MenueDown"]);
+//    第三方菜单栏管理
+    Route::get('/others/',['as'=>"other",'uses'=>"OtherController@OtherIndex"]);
+    Route::get('/othersedit/',['as'=>"othersedit",'uses'=>"OtherController@OtherEdit"]);
+    Route::post('/othersedit/',['as'=>"othersedit",'uses'=>"OtherController@OtherStore"]);
+    Route::get('/othersreedit/{id}',['as'=>"othersreedit",'uses'=>"OtherController@OtherReedit"]);
+    Route::post('/othersreedit/{id}',['as'=>"othersreedit",'uses'=>"OtherController@OtherRestore"]);
+    Route::get('/othersdelete/{id}',['as'=>"othersdelete",'uses'=>"OtherController@OtherDelete"]);
+    Route::get('/othersshow/{id}',['as'=>"othersshow",'uses'=>"OtherController@OtherShow"]);
+    Route::get('/othersup/{id}',['as'=>"othersupshow",'uses'=>"OtherController@OtherUp"]);
+    Route::get('/othersdown/{id}',['as'=>"othersdownshow",'uses'=>"OtherController@OtherDown"]);
 
 });
 //登录
@@ -72,27 +82,32 @@ Route::get('/logout',['as'=>"logout",'uses'=>"AdminController@LogoutIndex"]);
 
 //提交表单
 Route::post('form/{id}','FormController@formPost');
+//主页
+Route::get('/',['as'=>"index",'uses'=>"HomeController@Index"]);
+
+Route::get('/index',['as'=>"index",'uses'=>"HomeController@Index"]);
+//url参数
+Route::get('/{url}',"MenueController@MenueUrl");
+//文章详情页面
+Route::get('/article/{id}',"HomeController@ArticleIndex");
 
 
-Route::get('index',function (){
-    return view('Home.index');
-});
-Route::get('/jiameng','FormController@fillform');
-Route::get('articleList',function (){
-    return view('Home.articleList');
-});
-Route::get('weixiu',function (){
-    return view('Home.weixiu');
-});
-Route::get('sheji',function (){
-    return view('Home.sheji');
-});
-Route::get('tousu',function (){
-    return view('Home.tousu');
-});
-Route::get('article',function (){
-    return view('Home.article');
-});
+//Route::get('/jiameng','FormController@fillform');
+//Route::get('articleList',function (){
+//    return view('Home.articleList');
+//});
+//Route::get('weixiu',function (){
+//    return view('Home.weixiu');
+//});
+//Route::get('sheji',function (){
+//    return view('Home.sheji');
+//});
+//Route::get('tousu',function (){
+//    return view('Home.tousu');
+//});
+//Route::get('article',function (){
+//    return view('Home.article');
+//});
 //Route::get('page',function (){
 //    return view('Home.page');
 //});

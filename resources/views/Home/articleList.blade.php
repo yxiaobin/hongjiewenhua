@@ -22,27 +22,40 @@
                 <a class="more" href="{{asset('/index')}}"><i class="fa fa-home fa-lg"></i></a>
         </div>
         <!--列表-->
-
+        @foreach($news as $new)
         <div class="index_list">
             <ul class="list_body">
-                <a href='{{url('')}}'>
+                @if($new->href !=null)
+                <a href='{{$new->href}}'>
+                 @else
+                        <a href='{{url("article/$new->id")}}'>
+                        @endif
                     <li style="width: 100%; font-size: .16rem;">
                         <div style="font-size: 18px; padding: 10px;">
-                            最美和声 | 花僮携最新单曲《爱逃》火热来袭！</div>
+                            {{$new->title}}
+                        </div>
                         <div style="padding-left: 10px; padding-bottom: 5px; font-size: 14px; color: #d1d1d1;">
-                            <span>
-                                2017.01-2017.12</span> <span style="float: right; padding-right: .1rem;">
-                                    全国</span></div>
-                        <div>
-                            <img src='UpFile/ServiceInfo/3a275257-cfdb-45c5-a5e9-fcec097a1b9a.jpg' style="height: auto; width: 95%;" /></div>
+                            {{--<span>--}}
+                                {{--2017.01-2017.12</span> <span style="float: right; padding-right: .1rem;">--}}
+                                    {{--全国</span></div>--}}
+                            <span style="float: right; padding-right: .1rem;">{{date('Y-m-d H:m:s',$new->time)}}</span>
+
+                            <div>
+                            <img src='{{url("getImage/$new->image")}}' style="height: auto; width: 95%;" /></div>
                         <div style="margin: 10px 10px 0px 10px;padding-bottom: 10px;font-size: 14px; color: #d1d1d1;border-bottom : 1px solid #f3f3f3;">
-                            她曾经在“星光大道”上面获过周冠军;她是《最美和声》孙楠组人气成员;她被媒体誉为百变歌姬;她要为自己过去的颠沛漂泊而歌唱;她是实力唱将</div>
+                            @if($new->abstract == null)
+                                {{str_limit( strip_tags($new->content), 100, '...')}}
+                                @else
+                                {!! $new->abstract !!}
+                                @endif
+                        </div>
                         <div style="padding: 10px 10px; font-size: 14px;">
                             <span>查看全文</span><span style="float: right;"><i class="fa fa-angle-right fa-lg"></i></span></div>
                     </li>
                 </a>
             </ul>
         </div>
+            @endforeach
     </div>
 </body>
 </html>

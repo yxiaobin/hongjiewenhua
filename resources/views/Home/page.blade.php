@@ -21,7 +21,7 @@
         <a class="more" href="{{asset('/index')}}"><i class="fa fa-home fa-lg"></i></a>
     </div>
    <div class="feedback">
-    aaaaaaaaaaaaaaaa撒奥奥奥奥奥奥奥奥奥奥绿扩军奥奥所多绿扩女发扩军，阿达拉大锯as看来是加了
+    {!! $new->content !!}
    </div>
 </div>
 </body>
