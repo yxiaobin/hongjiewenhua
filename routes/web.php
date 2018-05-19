@@ -70,12 +70,14 @@ Route::post('/login',['as'=>"login",'uses'=>"AdminController@Login"]);
 //退出
 Route::get('/logout',['as'=>"logout",'uses'=>"AdminController@LogoutIndex"]);
 
+//提交表单
+Route::post('form/{id}','FormController@formPost');
+
+
 Route::get('index',function (){
     return view('Home.index');
 });
-Route::get('/jiameng',function (){
-    return view('Home.form');
-});
+Route::get('/jiameng','FormController@fillform');
 Route::get('articleList',function (){
     return view('Home.articleList');
 });
@@ -91,8 +93,8 @@ Route::get('tousu',function (){
 Route::get('article',function (){
     return view('Home.article');
 });
-Route::get('page',function (){
-    return view('Home.page');
-});
+//Route::get('page',function (){
+//    return view('Home.page');
+//});
 //获取图片
 Route::get('/getImage/{path}/{name}',['as'=>'getImage','uses'=>'AdminController@getImage']);

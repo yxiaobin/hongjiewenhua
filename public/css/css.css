@@ -1807,7 +1807,18 @@
     color: #666;
     text-indent: 2em;
 }
-
-
+.alert {
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    font-weight: 400;
+}
+.alert-danger {
+    color: #d73727;
+    border-color: #f3b1ab;
+    background-color: #fdc3bd;
+}
 
 

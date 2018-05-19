@@ -25,25 +25,35 @@ class AdminController extends Controller
         ]);
         $name = $request->input('name');
         $password = $request->input('password');
-        $member=Member::where('name','=',$name)->get();
-        if(count($member)<=0){
-            //用户名不存在
-            echo "<script>alert('用户名不存在！')</script>";
-            session(['name'=>'','rank'=>'', 'id'=>'']);
-            echo "<script> window.location.href=\" ".url("login")." \"; </script> ";
-        }else {
-            $member = $member->first();
-            if($password == $member->password){
-                //登记session
-                session(['id'=>$member->id]);
-                return redirect('adminindex');
-            }else{
-                //密码错误
-                echo "<script>alert('密码错误！')</script>";
+        if(count(Member::all())==0){
+            $member = new Member();
+            $member->name = $name;
+            $member->password = encrypt($password);
+            $member->save();
+            session(['id'=>$member->id]);
+            return redirect('adminindex');
+        }else{
+            $member=Member::where('name','=',$name)->get();
+            if(count($member)<=0){
+                //用户名不存在
+                echo "<script>alert('用户名不存在！')</script>";
                 session(['id'=>'']);
                 echo "<script> window.location.href=\" ".url("login")." \"; </script> ";
+            }else {
+                $member = $member->first();
+                if($password == decrypt($member->password)){
+                    //登记session
+                    session(['id'=>$member->id]);
+                    return redirect('adminindex');
+                }else{
+                    //密码错误
+                    echo "<script>alert('密码错误！')</script>";
+                    session(['id'=>'']);
+                    echo "<script> window.location.href=\" ".url("login")." \"; </script> ";
+                }
             }
         }
+
     }
     //品牌管理页面
     public  function  BrandIndex(){
