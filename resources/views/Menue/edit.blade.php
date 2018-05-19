@@ -27,7 +27,7 @@
                         </div>
                         <div class="form-group">
                             <label>超链接 <span class="size">（自定义分类下超链接必须填写）</span></label>
-                            <input type="text" class="form-control" name="href" value="">
+                            <input type="text" class="form-control" name="href" value="http://">
                         </div>
                         <div class="form-group">
                             <label>名称</label>
@@ -61,12 +61,29 @@
 
                             </select>
                         </div>
+                        <div class="form-group" style="display:none;" id="lianjie">
+                            <label>链接名称</label>
+                            <input type="text" class="form-control" placeholder="链接名称" name="url_name" value="">
+                        </div>
                         <input type="submit" class="btn btn-primary" value="确定">
                         <input type="button" class="btn btn-default" onclick="location.href='#'" value="取消">
                 </div>
             </div>
         </div>
     </div>
+@endsection
+@section('js')
+    <script>
+        $('#select').change(function () {
+            var v = $('#select').val();
+            var s = v.split('/');
+            if(s[1]=='自定义'){
+                $('#lianjie').show();
+            }else{
+                $('#lianjie').hide();
+            }
 
-
+            $('#menu').val(s[1]);
+        });
+    </script>
 @endsection

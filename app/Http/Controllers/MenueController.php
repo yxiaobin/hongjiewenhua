@@ -17,8 +17,9 @@ class MenueController extends Controller
     }
     public  function  MenueStore(Request $request){
         $this->validate($request,[
-            'image'=>'required',
-            'category'=>'required'
+            'image'=>'required|image',
+            'category'=>'required',
+            'href'=>'sometimes|url'
         ]);
         $str = explode('/',$request->input('category'));
         $str1=$str[0];
@@ -30,6 +31,7 @@ class MenueController extends Controller
         $menue->image = $request->file('image')->store('images');
         $menue->show=0;
         $menue->href=$request->input('href');
+        $menue->url_name = $request->input('url_name');
         $menue->num = count($menus)+1;
         $menue->save();
         return redirect('menue');
@@ -47,6 +49,7 @@ class MenueController extends Controller
             $str = explode('/',$request->input('category'));
             $str1=$str[0];
             $str2=$str[1];
+            $id->url_name = $request->input('url_name');
             $id->category = $str1;
             $id->name = $str2;
         }
