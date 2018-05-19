@@ -37,7 +37,11 @@ Route::middleware(['web','AdminCheckLog'])->group(function (){
     Route::post('/reeditpage/{id}',['as'=>"reeditpagepost",'uses'=>"PageController@PageReeditStore"]);
     Route::get('/deletepage/{id}',['as'=>"deletepage",'uses'=>"PageController@PageDelete"]);
     //表单管理
+    Route::get('/form/{form}/delete','FormController@formdelete');
+    Route::get('/form/{form}/change','FormController@formchange');
     Route::get('/form/{id}/{status}',['as'=>"form",'uses'=>"FormController@FormIndex"]);
+    Route::get('/formdetail/{form}',['as'=>"formdetail",'uses'=>"FormController@formdetail"]);
+
     //幻灯片管理
     Route::get('/ppt',['as'=>"ppt",'uses'=>"PptController@PptIndex"]);
     Route::post('/addppt',['as'=>"addppt",'uses'=>"PptController@PptAdd"]);
