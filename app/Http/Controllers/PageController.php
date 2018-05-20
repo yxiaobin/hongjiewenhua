@@ -31,7 +31,7 @@ class PageController extends Controller
     }
     public  function  PageReeditIndex(Page $id){
         $page = $id;
-        return view('page.reedit',compact('page'));
+        return view('Page.reedit',compact('page'));
     }
     public  function  PageReeditStore(Page $id, Request $request){
         if($request->input('title')!=null){

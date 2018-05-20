@@ -11,7 +11,7 @@ class MemberController extends Controller
     public function  MemberIndex(){
         $members = Member::all();
         $tab = 1;
-        return view('member.index',compact('members','tab'));
+        return view('Member.index',compact('members','tab'));
     }
     public function  MemberStore(Request $request){
         $this->validate($request,[
