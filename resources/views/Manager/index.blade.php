@@ -1,4 +1,4 @@
-@extends("layout.manager")
+@extends("Layout.manager")
 
 @section("css")
     <style type="text/css">

@@ -1,4 +1,4 @@
-@extends('layout.manager')
+@extends('Layout.manager')
 @section("content")
     <script type="text/javascript" charset="utf-8" src="{{asset("/Ueditor/ueditor.config.js")}}"></script>
     <script type="text/javascript" charset="utf-8" src="{{asset("/Ueditor/ueditor.all.min.js")}}"> </script>
