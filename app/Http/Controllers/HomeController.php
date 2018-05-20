@@ -12,7 +12,7 @@ class HomeController extends Controller
 {
     //
     public  function  Index(){
-        $ppts = Ppt::orderby('num','asc')->get();
+        $ppts = Ppt::where('show','=','1')->orderby('num','asc')->get();
         $menues = Menue::where('show','=','1')->orderby('num','asc')->get();
         $others = Other::where('show','=','1')->orderby('num','asc')->get();
         return view('Home.index',compact('ppts','menues','others'));

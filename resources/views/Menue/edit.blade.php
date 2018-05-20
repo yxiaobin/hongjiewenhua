@@ -66,7 +66,7 @@
                             <input type="text" class="form-control" placeholder="链接名称" name="url_name" value="">
                         </div>
                         <input type="submit" class="btn btn-primary" value="确定">
-                        <input type="button" class="btn btn-default" onclick="location.href='#'" value="取消">
+                        <input type="button" class="btn btn-default" onclick="location.href='{{route('menue')}}'" value="取消">
                 </div>
             </div>
         </div>

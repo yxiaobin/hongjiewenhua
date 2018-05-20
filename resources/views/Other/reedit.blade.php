@@ -37,7 +37,7 @@
                             <input type="text" class="form-control" name="name" value="{{$other->name}}">
                         </div>
                         <input type="submit" class="btn btn-primary" value="确定">
-                        <input type="button" class="btn btn-default" onclick="location.href='#'" value="取消">
+                        <input type="button" class="btn btn-default" onclick="location.href='{{route('others')}}'" value="取消">
                 </div>
             </div>
         </div>

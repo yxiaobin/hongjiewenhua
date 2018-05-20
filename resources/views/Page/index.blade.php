@@ -17,6 +17,9 @@
                                 <td>{{$page->title}}</td>
                                 <td><img src="{{url("getImage/$page->img")}}" style="width: 100px; height: 60px;"></td>
                                 <td>
+                                    <a href="{{url("/pageshow/$page->id")}}" class="btn btn-success btn-xs" role="button">
+                                        预览
+                                    </a>
                                     <a href="{{url("reeditpage/$page->id")}} "class="btn btn-primary btn-xs" role="button">
                                         编辑
                                     </a>

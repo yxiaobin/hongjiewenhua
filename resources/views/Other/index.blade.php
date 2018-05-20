@@ -34,9 +34,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="#" class="btn btn-success btn-xs" role="button">
-                                        预览
-                                    </a>
+
                                     <a href="{{url("othersshow/$other->id")}}" class="btn btn-success btn-xs" role="button">
                                         @if($other->show==0)
                                             显示

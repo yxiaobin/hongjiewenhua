@@ -49,8 +49,18 @@
                         @endif
                     <img src="{{url("getImage/$menue->image")}}" alt="icon">
                     <p>
-                        @if($menue->name !='自定义')
-                        {{$menue->name}}
+                        @if($menue->name =='自定义')
+                        {{$menue->url_name}}
+                        @elseif($menue->name =='1')
+                            我要加盟
+                        @elseif($menue->name =='2')
+                            我要维修
+                        @elseif($menue->name =='3')
+                            我要设计
+                        @elseif($menue->name =='4')
+                            我要投诉
+                            @else
+                            {{$menue->name}}
                             @endif
                     </p></a>
             </li>

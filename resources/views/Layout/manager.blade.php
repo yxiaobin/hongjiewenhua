@@ -34,7 +34,7 @@
         <div class="sidebar-menu">
             <ul class="sidebar-nav">
                 <li class="active">
-                    <a href="#">
+                    <a href="{{route('adminindex')}}">
                         <div class="icon">
                             <i class="fa fa-tasks" aria-hidden="true"></i>
                         </div>
@@ -44,7 +44,7 @@
                 <li class="dropdown">
                     <a href="#">
                         <div class="icon">
-                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <i class="fa fa-cog" aria-hidden="true"></i>
                         </div>
                         <div class="title">内容管理</div>
                     </a>
@@ -60,7 +60,7 @@
                 <li class="dropdown">
                     <a href="{{route('member')}}">
                         <div class="icon">
-                            <i class="fa fa-group" aria-hidden="true"></i>
+                            <i class="fa fa-user" aria-hidden="true"></i>
                         </div>
                         <div class="title">人员管理</div>
                     </a>
@@ -68,7 +68,7 @@
                 <li class="dropdown">
                     <a href="#">
                         <div class="icon">
-                            <i class="fa fa-group" aria-hidden="true"></i>
+                            <i class="fa fa-sliders" aria-hidden="true"></i>
                         </div>
                         <div class="title">网站管理</div>
                     </a>
@@ -83,7 +83,7 @@
                 <li class="dropdown">
                     <a href="{{route('ppt')}}">
                         <div class="icon">
-                            <i class="fa fa-group" aria-hidden="true"></i>
+                            <i class="fa fa-image" aria-hidden="true"></i>
                         </div>
                         <div class="title">幻灯片管理</div>
                     </a>

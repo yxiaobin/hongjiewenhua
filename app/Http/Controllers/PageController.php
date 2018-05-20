@@ -50,4 +50,8 @@ class PageController extends Controller
         $id->delete();
         return redirect('page');
     }
+    public  function  PageShow(Page $id){
+        $page = $id;
+        return view('Page.detail',compact('page'));
+    }
 }

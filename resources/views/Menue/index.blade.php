@@ -7,7 +7,7 @@
                 <div class="card-body">
                     <table class=" table">
                         <thead>
-                        <th>名称</th>
+                        <th>类型</th>
                         <th>缩略图</th>
                         <th>超链接</th>
                         <th>排序</th>
@@ -37,9 +37,6 @@
                                         @endif
                                 </td>
                                 <td>
-                                    <a href="#" class="btn btn-success btn-xs" role="button">
-                                        预览
-                                    </a>
                                     <a href="{{url("menueshow/$menue->id")}}" class="btn btn-success btn-xs" role="button">
                                         @if($menue->show==0)
                                             显示

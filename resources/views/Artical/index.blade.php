@@ -36,7 +36,7 @@
                                 @endphp
                                 <td>{{$kind->name}}</td>
                                 <td>
-                                    <a href="#" class="btn btn-success btn-xs" role="button">
+                                    <a href="{{url("/article/$help->id")}}" class="btn btn-success btn-xs" role="button">
                                         预览
                                     </a>
                                     <a href="{{url("reeditartical/$help->id")}}" class="btn btn-primary btn-xs" role="button">

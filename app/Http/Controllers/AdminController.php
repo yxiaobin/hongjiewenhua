@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Category;
+use App\Form;
 use App\Member;
 use DeepCopy\f001\B;
 use Illuminate\Http\Request;
@@ -12,7 +13,15 @@ class AdminController extends Controller
 {
     // 后台管理页面
     public function  AdminIndex(){
-        return view("Manager.index");
+        $jiameng = Form::where('category','=','1')->where('isreading','=','0')->get();
+        $num1 = count($jiameng);
+        $weixiu = Form::where('category','=','2')->where('isreading','=','0')->get();
+        $num2 = count($weixiu);
+        $sheji = Form::where('category','=','3')->where('isreading','=','0')->get();
+        $num3 = count($sheji);
+        $tousu = Form::where('category','=','4')->where('isreading','=','0')->get();
+        $num4 = count($tousu);
+        return view("Manager.index",compact('num1','num2','num3','num4'));
     }
     //Login 页面
     public function  LoginIndex(){

@@ -36,6 +36,8 @@ Route::middleware(['web','AdminCheckLog'])->group(function (){
     Route::get('/reeditpage/{id}',['as'=>"reeditpage",'uses'=>"PageController@PageReeditIndex"]);
     Route::post('/reeditpage/{id}',['as'=>"reeditpagepost",'uses'=>"PageController@PageReeditStore"]);
     Route::get('/deletepage/{id}',['as'=>"deletepage",'uses'=>"PageController@PageDelete"]);
+    Route::get('/pageshow/{id}',['as'=>"pageshow",'uses'=>"PageController@PageShow"]);
+
     //表单管理
     Route::get('/form/{form}/delete','FormController@formdelete');
     Route::get('/form/{form}/change','FormController@formchange');
