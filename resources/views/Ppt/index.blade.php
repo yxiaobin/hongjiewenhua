@@ -37,7 +37,7 @@
                             <tbody>
                             @foreach($ppts as $ppt)
                                 <tr>
-                                    <td><img src="{{url('getImage')}}/{{$ppt->image}}" alt="" width="100" height="50"></td>
+                                    <td><img src="{{asset("uploads/$ppt->image")}}" alt="" width="100" height="50"></td>
                                     <td>{{$ppt->num}}</td>
                                     <td>
                                         @if($ppt->href==null)无
@@ -69,6 +69,9 @@
                                             <input type="button" class="btn btn-xs btn-warning" value="下移">
                                         </a>
                                             @endif
+                                        <a href="{{url("pptdelete/{$ppt->id}")}}">
+                                            <input type="button" class="btn btn-xs btn-danger" value="删除" onclick="return confirm('确定要删除？')">
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -96,7 +99,7 @@
                                                 <div class="section-title"></div>
                                                 <div class="section-body">
                                                     <div class="form-group">
-                                                        <label class="col-md-3 control-label">选择图片<span class="size">(1920x640)</label>
+                                                        <label class="col-md-3 control-label">选择图片<span class="size">(640x330)</label>
                                                         <div class="col-md-9">
                                                             <input type="file" name="image" accept="image/gif,image/jpeg,image/png,image/webp" class="form-control" placeholder="简体">
                                                         </div>

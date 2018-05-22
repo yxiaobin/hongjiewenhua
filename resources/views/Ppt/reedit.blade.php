@@ -37,14 +37,14 @@
                                                 <div class="section-title"></div>
                                                 <div class="section-body">
                                                     <div class="form-group">
-                                                        <label class="col-md-3 control-label">选择图片 <span class="size">(1920x640)</span></label>
+                                                        <label class="col-md-3 control-label">选择图片 <span class="size">(640x330)</span></label>
                                                         <div class="col-md-9">
                                                             <input type="file" name="image" accept="image/gif,image/jpeg,image/png,image/webp" class="form-control" >
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-md-9">
-                                                            <img src="{{url("getImage/$ppt->image")}}" alt="" style="widows:300px; height: 125px">
+                                                            <img src="{{asset("uploads/$ppt->image")}}" alt="" style="widows:300px; height: 125px">
 
                                                         </div>
                                                     </div>
@@ -57,7 +57,7 @@
                                                     <div class="form-footer">
                                                         <div class="form-group">
                                                             <div class="col-md-9 col-md-offset-3">
-                                                                <input type="submit" class="btn btn-primary" value="修改">
+                                                                <input type="submit" class="btn btn-primary" value="保存">
                                                                 <input type="button" class="btn btn-default" value="取消">
                                                             </div>
                                                         </div>

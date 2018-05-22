@@ -27,34 +27,34 @@
                         </div>
                         <div class="form-group">
                             <label>超链接 <span class="size">（自定义分类下超链接必须填写）</span></label>
-                            <input type="text" class="form-control" name="href" value="http://">
+                            <input type="text" class="form-control" name="href">
                         </div>
                         <div class="form-group">
                             <label>名称</label>
-                            <select class="form-control" name="category" id="select" style="margin-bottom: 10px;">
-                                <option value="-1">-----请选择-----</option>
+                            <select class="form-control" name="name" id="select" style="margin-bottom: 10px;">
+                                <option value="">-----请选择-----</option>
                                 <optgroup label="文章类别">
                                     @php
                                         $articals = App\Category::all();
                                     @endphp
-                                    <option value="1/全部文章" name="category">全部文章</option>
+                                    <option value="1/全部文章" name="name">全部文章</option>
                                     @foreach($articals as $artical)
-                                        <option value="1/{{$artical->name}}" name="category">{{$artical->name}}</option>
+                                        <option value="1/{{$artical->name}}" name="name">{{$artical->name}}</option>
                                     @endforeach
                                 </optgroup>
                                 <optgroup label="表单类别">
-                                    <option value="2/1" name="category">我要加盟</option>
-                                    <option value="2/2" name="category">我要维修</option>
-                                    <option value="2/3" name="category">我要设计</option>
-                                    <option value="2/4" name="category">我要投诉</option>
+                                    <option value="2/1" name="name">我要加盟</option>
+                                    <option value="2/2" name="name">我要维修</option>
+                                    <option value="2/3" name="name">我要设计</option>
+                                    <option value="2/4" name="name">我要投诉</option>
                                 </optgroup>
                                 <optgroup label="其他">
-                                    <option value="3/自定义" name="category">自定义</option>
+                                    <option value="3/自定义" name="name">自定义</option>
                                     @php
                                         $pages = App\Page::all();
                                     @endphp
                                     @foreach($pages as $page)
-                                        <option value="3/{{$page->title}}" name="category">{{$page->title}}</option>
+                                        <option value="3/{{$page->title}}" name="name">{{$page->title}}</option>
                                     @endforeach
 
                                 </optgroup>

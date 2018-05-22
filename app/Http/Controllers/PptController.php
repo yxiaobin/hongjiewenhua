@@ -51,7 +51,7 @@ class PptController extends Controller
     }
     public  function  PptReeditIndex(Ppt $id){
         $ppt = $id;
-        return view('ppt.reedit',compact('ppt'));
+        return view('Ppt.reedit',compact('ppt'));
     }
     public  function  PptReeditStore(Ppt $id, Request $request){
         if($request->input('href')!=null){
@@ -62,6 +62,10 @@ class PptController extends Controller
         }
         $id->save();
         return redirect('ppt');
+    }
+    public function pptdelete(Ppt $id){
+        $id->delete();
+        return back();
     }
 }
 

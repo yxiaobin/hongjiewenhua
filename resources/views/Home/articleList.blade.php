@@ -41,7 +41,7 @@
                             <span style="float: right; padding-right: .1rem;">{{date('Y-m-d H:m:s',$new->time)}}</span>
 
                             <div>
-                            <img src='{{url("getImage/$new->image")}}' style="height: auto; width: 95%;" /></div>
+                            <img src='{{asset("uploads/$new->image")}}' style="height: auto; width: 95%;" /></div>
                         <div style="margin: 10px 10px 0px 10px;padding-bottom: 10px;font-size: 14px; color: #d1d1d1;border-bottom : 1px solid #f3f3f3;">
                             @if($new->abstract == null)
                                 {{str_limit( strip_tags($new->content), 100, '...')}}

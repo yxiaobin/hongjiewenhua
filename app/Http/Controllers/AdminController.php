@@ -93,7 +93,7 @@ class AdminController extends Controller
     }
     public  function  CategoryStore(Request $request){
         $this->validate($request,[
-            'name'=>'required|unique:brand,name'
+            'name'=>'required|unique:category,name'
         ]);
         $kind  = new Category();
         $kind->name = $request->input('name');
@@ -101,6 +101,17 @@ class AdminController extends Controller
         $tab=1;
         $categorys =Category::orderby('id','desc')->get();
         return view('Category.index',compact('tab','categorys'));
+    }
+    public function CategoryEdit(Category $category){
+        return view('Category.edit')->with(['category'=>$category]);
+    }
+    public function CategoryUpdate(Category $category,Request $request){
+        $this->validate($request,[
+            'name'=>'required|unique:category,name,'.$category->id,
+        ]);
+            $category->name = $request->input('name');
+            $category->save();
+        return redirect('/category');
     }
     public  function  CategoryDelete(Category $id){
         $id ->delete();

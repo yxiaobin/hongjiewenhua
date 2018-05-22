@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-12 col-sm-12">
             <div class="card">
-                <div class="card-header">教程列表</div>
+                <div class="card-header">文章列表</div>
                 <div class="card-body">
                     <table class="datatable table">
                         <thead>
@@ -27,7 +27,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <img src="{{url('getImage')}}/{{$help->image}}" alt="" width="100" height="50"></td>
+                                    <img src="{{asset("uploads/$help->image")}}" alt="" width="100" height="50"></td>
                                 </td>
                                 <td>{{$help->href}}</td>
                                 <td>{{date('Y-m-d',$help->time)}}</td>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="card-header">
                     <a href="{{route('addartical')}}">
-                        <input type="button" class="btn btn-primary" value="新建教程">
+                        <input type="button" class="btn btn-primary" value="新建文章">
                     </a>
                 </div>
             </div>

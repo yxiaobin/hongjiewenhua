@@ -26,7 +26,7 @@
                             <input type="file" class="form-control" name="image">
                         </div>
                         <div class="form-group">
-                            <img src="{{url("getImage/$p->image")}}" style="widows:300px; height: 150px;">
+                            <img src="{{asset("uploads/$p->image")}}" style="widows:300px; height: 150px;">
                         </div>
                         <div class="form-group">
                             <label>超链接 <span class="size">（自定义分类下超链接必须填写）</span></label>
@@ -34,18 +34,18 @@
                         </div>
                         <div class="form-group">
                             <label>名称</label>
-                            <select class="form-control" name="category" id="select" style="margin-bottom: 10px;">
-                                <option value="-1">-----请选择-----</option>
+                            <select class="form-control" name="name" id="select" style="margin-bottom: 10px;">
+                                <option value="">-----请选择-----</option>
                                 <optgroup label="文章类别">
                                     @php
                                         $articals = App\Category::all();
                                     @endphp
-                                    <option value="1/全部文章" name="category"
+                                    <option value="1/全部文章" name="name"
                                     @if($p->name=='全部文章')
                                     selected
                                     @endif>全部文章</option>
                                     @foreach($articals as $artical)
-                                        <option value="1/{{$artical->name}}" name="category"
+                                        <option value="1/{{$artical->name}}" name="name"
                                                 @if($p->name == $artical->name)
                                                 selected
                                                 @endif
@@ -53,26 +53,26 @@
                                     @endforeach
                                 </optgroup>
                                 <optgroup label="表单类别">
-                                    <option value="2/1" name="category"
+                                    <option value="2/1" name="name"
                                             @if($p->name==1)
                                             selected
                                             @endif
                                     >我要加盟</option>
-                                    <option value="2/2" name="category"
+                                    <option value="2/2" name="name"
                                             @if($p->name==2)
                                             selected
                                             @endif>我要维修</option>
-                                    <option value="2/3" name="category"
+                                    <option value="2/3" name="name"
                                             @if($p->name==3)
                                             selected
                                             @endif>我要设计</option>
-                                    <option value="2/4" name="category"
+                                    <option value="2/4" name="name"
                                             @if($p->name==4)
                                             selected
                                             @endif>我要投诉</option>
                                 </optgroup>
                                 <optgroup label="其他">
-                                    <option value="3/自定义" name="category"
+                                    <option value="3/自定义" name="name"
                                             @if($p->name=="自定义")
                                             selected
                                             @endif
@@ -81,7 +81,7 @@
                                         $pages = App\Page::all();
                                     @endphp
                                     @foreach($pages as $page)
-                                        <option value="3/{{$page->title}}" name="category"
+                                        <option value="3/{{$page->title}}" name="name"
                                                 @if($p->name==$page->title)
                                                 selected
                                                 @endif
@@ -96,7 +96,7 @@
                             <label>链接名称</label>
                             <input type="text" class="form-control" placeholder="链接名称" name="url_name" value="{{$p->url_name}}">
                         </div>
-                        <input type="submit" class="btn btn-primary" value="确定">
+                        <input type="submit" class="btn btn-primary" value="保存">
                         <input type="button" class="btn btn-default" onclick="location.href='{{route('menue')}}'" value="取消">
                 </div>
             </div>

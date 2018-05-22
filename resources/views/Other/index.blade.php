@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-12 col-sm-12">
             <div class="card">
-                <div class="card-header">菜单栏列表</div>
+                <div class="card-header">拓展栏列表</div>
                 <div class="card-body">
                     <table class=" table">
                         <thead>
@@ -22,7 +22,7 @@
 
                                 </td>
                                 <td>
-                                    <img src="{{url('getImage')}}/{{$other->image}}" alt="" width="100" height="50"></td>
+                                    <img src="{{asset("uploads/$other->image")}}" alt="" width="100" height="50"></td>
                                 </td>
                                 <td>{{$other->href}}</td>
                                 <td>{{$other->num}}</td>
@@ -65,7 +65,7 @@
                 </div>
                 <div class="card-header">
                     <a href="{{route('othersedit')}}">
-                        <input type="button" class="btn btn-primary" value="添加新的菜单栏">
+                        <input type="button" class="btn btn-primary" value="添加新的拓展栏">
                     </a>
                 </div>
             </div>

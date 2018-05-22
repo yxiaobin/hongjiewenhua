@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//获取图片
+Route::get('/getImage/{path}/{name}',['as'=>'getImage','uses'=>'AdminController@getImage']);
 //管理员权限
 Route::middleware(['web','AdminCheckLog'])->group(function (){
     //主页
@@ -21,6 +23,8 @@ Route::middleware(['web','AdminCheckLog'])->group(function (){
     //文章分类管理
     Route::get('/category',['as'=>"category",'uses'=>"AdminController@CategoryIndex"]);
     Route::post('/category',['as'=>"category",'uses'=>"AdminController@CategoryStore"]);
+    Route::get('/category/{category}/edit','AdminController@CategoryEdit');
+    Route::post('/category/{category}','AdminController@CategoryUpdate');
     Route::get('/deleteCategory/{id}',['as'=>"deletecategory",'uses'=>"AdminController@CategoryDelete"]);
     //文章增删改查管理
     Route::get('/artical',['as'=>"artical",'uses'=>"ArticalController@ArticalIndex"]);
@@ -52,6 +56,7 @@ Route::middleware(['web','AdminCheckLog'])->group(function (){
     Route::get('/pptdown/{id}',['as'=>"pptshow",'uses'=>"PptController@PptDown"]);
     Route::get('/reeditppt/{id}',['as'=>"reeditppt",'uses'=>"PptController@PptReeditIndex"]);
     Route::post('/reeditppt/{id}',['as'=>"reeditppt",'uses'=>"PptController@PptReeditStore"]);
+    Route::get('/pptdelete/{id}','PptController@pptdelete');
     //管理员信息修该
     Route::get('/info/',['as'=>"info",'uses'=>"AdminController@InfoIndex"]);
     Route::post('/info/',['as'=>"info",'uses'=>"AdminController@InfoStore"]);
@@ -117,5 +122,3 @@ Route::get('/article/{id}',"HomeController@ArticleIndex");
 //Route::get('page',function (){
 //    return view('Home.page');
 //});
-//获取图片
-Route::get('/getImage/{path}/{name}',['as'=>'getImage','uses'=>'AdminController@getImage']);

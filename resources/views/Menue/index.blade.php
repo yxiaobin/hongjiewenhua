@@ -25,7 +25,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <img src="{{url('getImage')}}/{{$menue->image}}" alt="" width="100" height="50"></td>
+                                    <img src="{{asset("uploads/$menue->image")}}" alt="" width="100" height="50"></td>
                                 </td>
                                 <td>{{$menue->href}}</td>
                                 <td>{{$menue->num}}</td>

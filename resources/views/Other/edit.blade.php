@@ -26,7 +26,7 @@
                             <input type="file" class="form-control" name="image">
                         </div>
                         <div class="form-group">
-                            <label>超链接 <span class="size">（自定义分类下超链接必须填写）</span></label>
+                            <label>超链接 </label>
                             <input type="text" class="form-control" name="href" value="">
                         </div>
                         <div class="form-group">

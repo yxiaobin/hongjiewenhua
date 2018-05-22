@@ -26,7 +26,7 @@
     ?>
     <aside class="app-sidebar" id="sidebar" style="height: auto">
         <div class="sidebar-header">
-            <a class="sidebar-brand" href="#"><span class="highlight">红杰文化</span>后台管理</a>
+            <a class="sidebar-brand" href="{{url('/ ')}}"><span class="highlight">红杰文化</span>后台管理</a>
             <button type="button" class="sidebar-toggle">
                 <i class="fa fa-times"></i>
             </button>
@@ -62,7 +62,7 @@
                         <div class="icon">
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </div>
-                        <div class="title">人员管理</div>
+                        <div class="title">用户管理</div>
                     </a>
                 </li>
                 <li class="dropdown">

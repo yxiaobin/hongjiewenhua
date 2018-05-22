@@ -17,7 +17,7 @@
                         </ul>
                     </div>
                 @endif
-                <div class="card-header">新建菜单</div>
+                <div class="card-header">新建拓展栏</div>
                 <div class="card-body">
                     <form action="{{url("othersreedit/$other->id")}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
@@ -26,17 +26,17 @@
                             <input type="file" class="form-control" name="image">
                         </div>
                         <div class="form-group">
-                            <img src="{{url("getImage/$other->image")}}" style="widows:300px; height: 150px;">
+                            <img src="{{asset("uploads/$other->image")}}" style="widows:300px; height: 150px;">
                         </div>
                         <div class="form-group">
-                            <label>超链接 <span class="size">（自定义分类下超链接必须填写）</span></label>
+                            <label>超链接</label>
                             <input type="text" class="form-control" name="href" value="{{$other->href}}">
                         </div>
                         <div class="form-group">
                             <label>名称</label>
                             <input type="text" class="form-control" name="name" value="{{$other->name}}">
                         </div>
-                        <input type="submit" class="btn btn-primary" value="确定">
+                        <input type="submit" class="btn btn-primary" value="保存">
                         <input type="button" class="btn btn-default" onclick="location.href='{{route('other')}}'" value="取消">
                 </div>
             </div>

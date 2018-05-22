@@ -35,7 +35,6 @@
                 <div class="app-block">
                     <div class="app-form">
                         <div class="form-header">
-                            <div class="app-brand"><img src="{{asset('/images/logo-dark.png')}}" width="200px"></div>
                         </div>
                         @if (count($errors) > 0)
                             <div class="alert alert-danger">

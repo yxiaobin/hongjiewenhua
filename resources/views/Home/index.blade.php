@@ -29,7 +29,7 @@
 
                     @foreach($ppts as $ppt)
                     <li><a href="{{$ppt->href}}">
-                            <img src="{{url("getImage/$ppt->image")}}">
+                            <img src="{{asset("uploads/$ppt->image")}}">
                         </a></li>
                      @endforeach
                 </ul></div>
@@ -47,7 +47,7 @@
                     @else
                         <a href="{{$menue->href}}">
                         @endif
-                    <img src="{{url("getImage/$menue->image")}}" alt="icon">
+                    <img src="{{asset("uploads/$menue->image")}}" alt="icon">
                     <p>
                         @if($menue->name =='自定义')
                         {{$menue->url_name}}
@@ -73,7 +73,7 @@
         <ul>
                 @foreach($others as $other)
             <li style="height: 171px;"><a href="{{$other->href}}">
-                    <img src="{{url("getImage/$other->image")}}" alt="icon">
+                    <img src="{{asset("uploads/$other->image")}}" alt="icon">
                     <p>
                         {{$other->name}}</p></a>
             </li>

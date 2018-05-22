@@ -21,10 +21,10 @@ class MenueController extends Controller
     public  function  MenueStore(Request $request){
         $this->validate($request,[
             'image'=>'required|image',
-            'category'=>'required',
-            'href'=>'sometimes|url'
+            'name'=>'required',
+            'href'=>'nullable|url'
         ]);
-        $str = explode('/',$request->input('category'));
+        $str = explode('/',$request->input('name'));
         $str1=$str[0];
         $str2=$str[1];
         $menus = Menue::all();
@@ -44,12 +44,15 @@ class MenueController extends Controller
         return view('Menue.reedit',compact('p'));
     }
     public function  MenueRestore(Menue $id,Request $request){
+        $this->validate($request,[
+            'href'=>'nullable|url'
+        ]);
         if ($request->file('image')!=null){
             $id->image = $request->file('image')->store('images');
         }
         $id->href = $request->input('href');
-        if ($request->input('category')!=-1){
-            $str = explode('/',$request->input('category'));
+        if ($request->input('category')){
+            $str = explode('/',$request->input('name'));
             $str1=$str[0];
             $str2=$str[1];
             $id->url_name = $request->input('url_name');

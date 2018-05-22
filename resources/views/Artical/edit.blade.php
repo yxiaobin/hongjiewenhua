@@ -40,7 +40,6 @@
                         <div class="form-group">
                             <label>文章分类</label>
                             <select name="category" id="" class="select2">
-                                <option value="0">未分类</option>
                                 @foreach($categorys as $category)
                                     <option value="{{$category->id}}">
                                         {{$category->name}}

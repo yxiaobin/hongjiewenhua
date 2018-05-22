@@ -36,6 +36,9 @@
                                 <tr>
                                     <td>{{$category->name}}</td>
                                     <td>
+                                        <a href="{{url("category/$category->id/edit")}}">
+                                            <input type="button" class="btn btn-xs btn-info" value="编辑">
+                                        </a>
                                         <a href="{{url("deleteCategory/$category->id")}}">
                                             <input type="button" class="btn btn-xs btn-danger" value="删除">
                                         </a>

@@ -21,7 +21,7 @@
                             <input type="file" class="form-control" name="img">
                         </div>
                         <div class="form-group">
-                            <img src="{{url("getImage/$page->id")}}" alt="" style="width: 328px; height: 220px;">
+                            <img src="{{asset("uploads/$page->img")}}" alt="" style="width: 328px; height: 220px;">
                         </div>
                         <div class="form-group">
                             <label for="">正文</label>

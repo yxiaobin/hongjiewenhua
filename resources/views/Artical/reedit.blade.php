@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">文章发布</div>
+                <div class="card-header">文章修改</div>
                 <div class="card-body">
                     <form action="{{url("reeditartical/$new->id")}}" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
@@ -22,7 +22,7 @@
                             <input type="file" class="form-control" name="image">
                         </div>
                         <div class="form-group">
-                            <img src="{{url("getImage/$new->image")}}"  style="width: 328px;height: 220px;">
+                            <img src="{{asset("uploads/$new->image")}}}"  style="width: 328px;height: 220px;">
                         </div>
                         <div class="form-group">
                             <label>超链接 <span class="size"></span></label>
@@ -34,7 +34,6 @@
                         <div class="form-group">
                             <label>文章分类</label>
                             <select name="category" id="" class="select2">
-                                <option value="0">未分类</option>
                                 @foreach($categorys as $category)
                                     <option value="{{$category->id}}"
                                     @if($category->id == $new->category_id)
@@ -53,7 +52,7 @@
                             <label for="">正文</label>
                             <div id="editor" type="text/plain" style="height: 400px;width: 100%;margin: auto"></div>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="发布" style="margin-top: 20px">
+                        <input type="submit" class="btn btn-primary" value="保存" style="margin-top: 20px">
                     </form>
                 </div>
             </div>
