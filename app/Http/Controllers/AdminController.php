@@ -6,6 +6,7 @@ use App\Brand;
 use App\Category;
 use App\Form;
 use App\Member;
+use App\Menue;
 use DeepCopy\f001\B;
 use Illuminate\Http\Request;
 
@@ -32,12 +33,16 @@ class AdminController extends Controller
             'name'=>'required|min:4|max:15',
             'password'=>'required|min:4|max:15'
         ]);
+        //dd($request);
         $name = $request->input('name');
         $password = $request->input('password');
         if(count(Member::all())==0){
             $member = new Member();
             $member->name = $name;
             $member->password = encrypt($password);
+            if($request->input('remember')=='on'){
+                $member->remember = 1;
+            }
             $member->save();
             session(['id'=>$member->id]);
             return redirect('adminindex');
@@ -53,6 +58,25 @@ class AdminController extends Controller
                 if($password == decrypt($member->password)){
                     //登记session
                     session(['id'=>$member->id]);
+                    //是否记住密码
+                    if($request->input('remember')=='on'){
+                        //dd("OK");
+                        $members = Member::where('remember','=','1')->where('id','!=',$member->id)->get();
+                       foreach($members as $p){
+                           $p->remember = 0;
+                           $p->save();
+                       }
+                        $member->remember = 1;
+                        $member->save();
+                        //dd($member);
+                    }else{
+                        //dd("NO");
+                        $members = Member::where('remember','=','1')->get();
+                        foreach($members as $p){
+                            $p->remember = 0;
+                            $p->save();
+                        }
+                    }
                     return redirect('adminindex');
                 }else{
                     //密码错误
@@ -114,6 +138,11 @@ class AdminController extends Controller
         return redirect('/category');
     }
     public  function  CategoryDelete(Category $id){
+        $menues = Menue::where('name','=',$id->name)->get();
+        foreach($menues as $menue)
+        {
+            $menue->delete();
+        }
         $id ->delete();
         return redirect()->back();
     }
