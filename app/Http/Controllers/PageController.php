@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Menue;
 use App\News;
 use App\Page;
 use Illuminate\Http\Request;
@@ -47,6 +48,11 @@ class PageController extends Controller
         return redirect('page');
     }
     public  function  PageDelete(Page $id){
+        $menues = Menue::where('name','=',$id->title)->get();
+            foreach($menues as $menue)
+            {
+                $menue->delete();
+            }
         $id->delete();
         return redirect('page');
     }

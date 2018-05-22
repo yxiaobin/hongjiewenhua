@@ -22,7 +22,7 @@ class MemberController extends Controller
         $member = new Member();
         $member->usr_name = $request->input('usr_name');
         $member->name = $request->input('name');
-        $member->password = $request->input('password');
+        $member->password = encrypt($request->input('password'));
         $member->save();
         return redirect('member');
     }
