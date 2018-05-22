@@ -30,7 +30,7 @@
     <div class="common_w">
         <!--头部-->
         <div class="nav_top">
-            <a class="back" href="javascript:history.back();"><i class="fa fa-caret-left fa-lg"></i></a>红杰文化
+            <a class="back" href="javascript:history.back();"><i class="fa fa-caret-left fa-lg"></i></a>@if($id==1)我要加盟@elseif($id==2)我要维修@elseif($id==3)我要设计@elseif($id==4)我要投诉@endif
             <a class="more" href="{{asset('/index')}}"><i class="fa fa-home fa-lg"></i></a>
         </div>
         <!--content-->

@@ -22,7 +22,7 @@
                     <form action="#" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="form-group">
-                            <label>图标</label>
+                            <label>图标 <span class="size">(64x64)</span></label>
                             <input type="file" class="form-control" name="image">
                         </div>
                         <div class="form-group">

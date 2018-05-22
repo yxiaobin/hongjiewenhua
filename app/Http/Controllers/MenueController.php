@@ -51,7 +51,7 @@ class MenueController extends Controller
             $id->image = $request->file('image')->store('images');
         }
         $id->href = $request->input('href');
-        if ($request->input('category')){
+        if ($request->input('name')){
             $str = explode('/',$request->input('name'));
             $str1=$str[0];
             $str2=$str[1];
@@ -92,13 +92,13 @@ class MenueController extends Controller
         $menue = Menue::where('name','=',$url)->get()[0];
         if($url=='全部文章'){
             $news = News::orderby('id','desc')->get();
-            return view('Home.articleList',compact('news'));
+            return view('Home.articleList')->with(['news'=>$news,'url'=>$url]);
         }else if($url=='自定义'){
 
         }else if($menue->category==1){
             $id = Category::where('name','=',$url)->get()[0];
             $news = News::where('category_id','=',$id->id)->orderby('id','desc')->get();
-            return view('Home.articleList',compact('news'));
+            return view('Home.articleList')->with(['news'=>$news,'url'=>$url]);
         }else if($menue->category==2){
             $id = $url;
              return view('Home.form',compact('id'));

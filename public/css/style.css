@@ -17,8 +17,11 @@ body {
     overflow-x: hidden;
     background: #fff
 }
+body img {
+    max-width: 90vw;
+    height: auto;
+}
 a {
-    color: #5bc0eb;
     -webkit-transition: .5s;
     -o-transition: .5s;
     transition: .5s

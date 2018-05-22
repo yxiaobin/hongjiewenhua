@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-12 col-sm-12">
             <div class="card">
-                <div class="card-header">页面列表</div>
+                <div class="card-header">@if($id==1)我要加盟@elseif($id==2)我要维修@elseif($id==3)我要设计@elseif($id==4)我要投诉@endif  @if($status==0)（未读）@else（已读）@endif</div>
                 <div class="card-body">
                     <table class="datatable table">
                         <thead>
@@ -25,7 +25,7 @@
                             @endphp
                             <tr>
                                 <td>{{$brand->name}}</td>
-                                <td>{{$form->addres}}</td>
+                                <td>{{$form->address}}</td>
                                 <td>{{$form->name}}</td>
                                 <td>{{$form->phone}}</td>
                                 @if($id==1)

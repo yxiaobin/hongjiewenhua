@@ -18,7 +18,7 @@
     <div class="common_w">
         <!--头部-->
         <div class="nav_top">
-            <a class="back" href="javascript:history.back();"><i class="fa fa-caret-left fa-lg"></i></a>红杰文化
+            <a class="back" href="javascript:history.back();"><i class="fa fa-caret-left fa-lg"></i></a>{{$url}}
                 <a class="more" href="{{asset('/index')}}"><i class="fa fa-home fa-lg"></i></a>
         </div>
         <!--列表-->

@@ -82,7 +82,7 @@
                             <div class="form-group" style="border: none;">
                                 <div class="col-md-9 col-md-offset-3">
                                     <a href="{{url("form/{$form->id}/change")}}"><button type="submit" class="btn btn-primary">@if($form->isreading==0)标为已读@else标为未读@endif</button></a>
-                                    <a href="{{url("form/{$form->id}/delete")}}"><button type="button" class="btn btn-default">返回</button></a>
+                                    <a href="{{url("form/$form->category/$form->isreading")}}"><button type="button" class="btn btn-default">返回</button></a>
                                 </div>
                             </div>
                         </div>

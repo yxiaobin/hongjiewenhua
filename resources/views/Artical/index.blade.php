@@ -32,7 +32,10 @@
                                 <td>{{$help->href}}</td>
                                 <td>{{date('Y-m-d',$help->time)}}</td>
                                 @php
-                                $kind = $help->kind()->get()[0];
+                                $kind = $help->kind()->get();
+                                if(count($kind)==0){
+                                    $kind->name = "该分类已删除";
+                                }
                                 @endphp
                                 <td>{{$kind->name}}</td>
                                 <td>
