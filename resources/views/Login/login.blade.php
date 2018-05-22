@@ -63,7 +63,7 @@
                             <div class="input-group">
               <span class="input-group-addon" id="basic-addon2">
                 <i class="fa fa-key" aria-hidden="true"></i></span>
-                                <input type="password" class="form-control" placeholder="密码" aria-describedby="basic-addon2" name="password" value="{{decrypt($member->password)}}">
+                                <input type="password" class="form-control" placeholder="密码" aria-describedby="basic-addon2" name="password" @if (count($members)==1)value="{{decrypt($member->password)}} @endif">
                             </div>
                             <div style="margin-top: 2%;">
                               <lable>
