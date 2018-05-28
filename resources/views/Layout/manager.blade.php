@@ -146,16 +146,16 @@
                 </li>
             </ul>
         </div>
-        <div class="sidebar-footer">
-            <ul class="menu">
-                <li>
-                    <a href="/" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-cogs" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li><a href="#"><span class="flag-icon flag-icon-th flag-icon-squared"></span></a></li>
-            </ul>
-        </div>
+        {{--<div class="sidebar-footer">--}}
+            {{--<ul class="menu">--}}
+                {{--<li>--}}
+                    {{--<a href="/" class="dropdown-toggle" data-toggle="dropdown">--}}
+                        {{--<i class="fa fa-cogs" aria-hidden="true"></i>--}}
+                    {{--</a>--}}
+                {{--</li>--}}
+                {{--<li><a href="#"><span class="flag-icon flag-icon-th flag-icon-squared"></span></a></li>--}}
+            {{--</ul>--}}
+        {{--</div>--}}
     </aside>
 
     <script type="text/ng-template" id="sidebar-dropdown.tpl.html">

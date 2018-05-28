@@ -3846,8 +3846,7 @@ ui-view > .app-messaging-container {
     padding: 0;
     background-color: #f0f4f5;
     border-bottom: 0;
-    overflow-x: scroll;
-    overflow-y: visible; }
+}
   .card.card-tab .card-header > ul, .card.card-tab ul.nav-tabs {
     list-style: none;
     padding: 0;

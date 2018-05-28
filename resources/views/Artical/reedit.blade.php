@@ -22,7 +22,7 @@
                             <input type="file" class="form-control" name="image">
                         </div>
                         <div class="form-group">
-                            <img src="{{asset("uploads/$new->image")}}}"  style="width: 328px;height: 220px;">
+                            <img src="{{asset("uploads/$new->image")}}"  style="width: 328px;height: 220px;">
                         </div>
                         <div class="form-group">
                             <label>超链接 <span class="size"></span></label>

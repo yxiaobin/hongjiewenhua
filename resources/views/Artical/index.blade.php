@@ -21,7 +21,7 @@
                                 <td>{{$help->title}}</td>
                                 <td>
                                     @if($help->abstract ==null)
-                                    {{str_limit( strip_tags($help->content), 100, '...')}}
+                                    {{str_limit( strip_tags($help->content), 40, '...')}}
                                     @else
                                         {!! $help->abstract !!}
                                     @endif
@@ -29,12 +29,14 @@
                                 <td>
                                     <img src="{{asset("uploads/$help->image")}}" alt="" width="100" height="50"></td>
                                 </td>
-                                <td>{{$help->href}}</td>
+                                <td>{{str_limit($help->href),20,'...'}}</td>
                                 <td>{{date('Y-m-d',$help->time)}}</td>
                                 @php
                                 $kind = $help->kind()->get();
                                 if(count($kind)==0){
                                     $kind->name = "该分类已删除";
+                                }else{
+                                    $kind = $kind[0];
                                 }
                                 @endphp
                                 <td>{{$kind->name}}</td>

@@ -34,10 +34,15 @@ class FormController extends Controller
     }
     public function formPost($id,Request $request){
         $this->validate($request,[
-            'brand'=>'required',
-            'address'=>'required',
-            'name'=>'required',
-            'phone'=>'required',
+            'brand'=>['required'],
+            'address'=>['required'],
+            'name'=>['required'],
+            'phone'=>[
+                'required',
+//                'regex:/^((13[0-9])|(15[^4])|(166)|(17[0-8])|(18[0-9])|(19[8-9])|(147,145))\\d{8}$/'
+                'numeric',
+                'size:11',
+                ],
         ]);
         $form = new Form();
         $form->brand = $request->input('brand');

@@ -45,29 +45,21 @@
                                 </ul>
                             </div>
                         @endif
-                        @php
-                        $members = App\Member::where('remember','=','1')->get();
-                        if(count($members) > 0){
-                        $member = $members->first();
-                        }else{
-                           $member = new \App\Member();
-                        }
-                        @endphp
                         <form action="{{route('login')}}" method="post">
                             <div class="input-group">
               <span class="input-group-addon" id="basic-addon1">
                 <i class="fa fa-user" aria-hidden="true"></i></span>
-                                <input type="text" class="form-control" placeholder="用户名" aria-describedby="basic-addon1" name="name" value="{{$member->name}}">
+                                <input type="text" class="form-control" placeholder="用户名" aria-describedby="basic-addon1" name="name">
                                 {{csrf_field()}}
                             </div>
                             <div class="input-group">
               <span class="input-group-addon" id="basic-addon2">
                 <i class="fa fa-key" aria-hidden="true"></i></span>
-                                <input type="password" class="form-control" placeholder="密码" aria-describedby="basic-addon2" name="password" @if (count($members)==1)value="{{decrypt($member->password)}} @endif">
+                                <input type="password" class="form-control" placeholder="密码" aria-describedby="basic-addon2" name="password">
                             </div>
                             <div style="margin-top: 2%;">
                               <lable>
-                                  <input type="checkbox" name="remember" @if(count($members)==1) checked="checked"@endif>
+                                  <input type="checkbox" name="remember">
                                   记住我
                               </lable>
                             </div>
