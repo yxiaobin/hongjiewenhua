@@ -39,7 +39,7 @@
                                         查看
                                     </a>
                                     <a href="{{url("form/{$form->id}/change")}}" class="btn btn-primary btn-xs" role="button">@if($status==0)标为已读@else标为未读@endif</a>
-                                    <a href="{{url("form/{$form->id}/delete")}}"class="btn btn-danger btn-xs" role="button" onclick="return comfirm('确定要删除？')">
+                                    <a href="{{url("form/{$form->id}/delete")}}" class="btn btn-warning btn-xs" role="button" onclick="return confirm('确认要删除吗？')">
                                         删除
                                     </a>
                                 </td>

@@ -47,6 +47,13 @@ class OtherController extends Controller
     }
     public  function  OtherDelete(Other $id){
         $id->delete();
+        $others = Other::orderby('num', 'asc')->get();
+       $i =1;
+       foreach ($others as $other){
+           $other ->num = $i;
+           $other->save();
+           $i++;
+       }
         return back();
     }
     public  function  OtherShow(Other $id){

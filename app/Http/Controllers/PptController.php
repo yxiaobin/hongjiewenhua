@@ -65,6 +65,14 @@ class PptController extends Controller
     }
     public function pptdelete(Ppt $id){
         $id->delete();
+        $ppts = Ppt::orderby('num','asc')->get();
+        $i = 1;
+        foreach ($ppts as $ppt){
+            $ppt->num = $i;
+            $i++;
+            $ppt->save();
+        }
+
         return back();
     }
 }

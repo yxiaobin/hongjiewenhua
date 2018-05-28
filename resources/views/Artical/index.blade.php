@@ -47,7 +47,7 @@
                                     <a href="{{url("reeditartical/$help->id")}}" class="btn btn-primary btn-xs" role="button">
                                         编辑
                                     </a>
-                                    <a href="{{url("deleteartical/$help->id")}}" class="btn btn-warning btn-xs" role="button">
+                                    <a href="{{url("deleteartical/$help->id")}}" class="btn btn-warning btn-xs" role="button" onclick="return confirm('确认要删除吗？')">
                                         删除
                                     </a>
 

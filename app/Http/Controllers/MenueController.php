@@ -64,6 +64,13 @@ class MenueController extends Controller
     }
     public  function  MenueDelete(Menue $id){
         $id->delete();
+        $menues = Menue::orderby('num','asc')->get();
+        $i = 1;
+        foreach($menues as $menue) {
+            $menue->num = $i;
+            $i++;
+            $menue->save();
+        }
         return back();
     }
     public  function  MenueShow(Menue $id){

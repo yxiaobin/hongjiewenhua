@@ -23,7 +23,7 @@
                                     <a href="{{url("reeditpage/$page->id")}} "class="btn btn-primary btn-xs" role="button">
                                         编辑
                                     </a>
-                                    <a href="{{url("deletepage/$page->id")}} "class="btn btn-danger btn-xs" role="button">
+                                    <a href="{{url("deletepage/$page->id")}} "class="btn btn-danger btn-xs" role="button"  onclick="return confirm('确认要删除吗？')">
                                         删除
                                     </a>
                                 </td>

@@ -40,7 +40,7 @@
                                             <input type="button" class="btn btn-xs btn-info" value="编辑">
                                         </a>
                                         <a href="{{url("deleteCategory/$category->id")}}">
-                                            <input type="button" class="btn btn-xs btn-danger" value="删除">
+                                            <input type="button" class="btn btn-xs btn-danger" value="删除" onclick="return confirm('确认要删除吗？')">
                                         </a>
                                     </td>
                                 </tr>

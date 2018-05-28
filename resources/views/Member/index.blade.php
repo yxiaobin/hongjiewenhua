@@ -44,7 +44,7 @@
                                         <a href="{{url("deletemember/$member->id")}}">
                                             <input   @if($member->id == session('id'))
                                                      disabled="disabled"
-                                                    @endif type="button" class="btn btn-xs btn-danger" value="删除">
+                                                    @endif type="button" class="btn btn-xs btn-danger" onclick="return confirm('确认要删除吗？')" value="删除">
                                         </a>
                                     </td>
                                 </tr>
